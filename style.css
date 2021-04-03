@@ -1,0 +1,153 @@
+body {
+  background: url(https://i.pinimg.com/originals/e4/88/03/e488031bd01ae03681fc6d027af1f962.jpg) no-repeat top center;
+  background-size: cover;
+}
+
+/* title graphic */
+.title {  
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.title img {
+  width: 90%;
+  height: auto;
+}
+/* mobile first grid layout */
+.grid-1 {
+  display: grid;
+  width: 96%;
+  max-width: 900px;
+  margin: 2% auto;
+  
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 25px;
+  
+  grid-template-areas:    "d23      d20     d12"
+                          "d2       d14     d4"
+                          "d5       d22     d16"
+                          "d1       d7      d9"
+                          "d10      d11     d18"
+                          "d13      d3      d15"
+                          "d6       d17     d8"
+                          "d19      d24     d21";
+}
+
+/* media query */
+@media only screen and (min-width: 500px) {
+  
+  .grid-1 {
+    grid-template-columns: repeat(3, 24r);
+    grid-template-areas: "d5      d6      d7"
+                         "d8      d9      d10"
+                         "d4      d4      d11"
+                         "d4      d4      d12"
+                         "d13     d14     d15";
+  }
+  
+}
+
+
+/* individual items */
+  .day-4 {
+    grid-area: d4;
+  }
+  .day-5 {
+    grid-area: d5;
+  }
+  .day-6 {
+    grid-area: d6;
+  }
+  .day-7 {
+    grid-area: d7;
+  }
+  .day-8 {
+    grid-area: d8;
+  }
+  .day-9 {
+    grid-area: d9;
+  }
+  .day-10 {
+    grid-area: d10;
+  }
+  .day-11 {
+    grid-area: d11;
+  }
+  .day-12 {
+    grid-area: d12;
+  }
+  .day-13 {
+    grid-area: d13;
+  }
+  .day-14 {
+    grid-area: d14;
+  }
+  .day-15 {
+    grid-area: d15;
+  }
+  
+/* door styles */
+
+.grid-1 input {
+  display: none;
+}
+
+label {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+  height: 120px;
+}
+
+.door {
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: all 300ms;
+  border: 3px dashed transparent;
+}
+
+  .door div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+     /* typography */
+    font-family: 'Kalam', cursive;
+    color: #FEFEFE;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .door .back {
+    background-size: contain;
+    background-position: center center;
+    background-color: #FEFEFE;
+    transform: rotateY(180deg);
+    
+    text-align: center; 
+    font-family: 'Kalam', cursive;
+    color: #000000;
+    font-size: 1em;
+    font-weight: normal;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  label:hover .door {
+    border-color: #FEFEFE;
+  }
+
+  :checked + .door {
+    transform: rotateY(180deg);
+  }
